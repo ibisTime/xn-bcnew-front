@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <link rel="import" href="head.html?__inline">
+    <title>资讯详情</title>
+    <!--SCRIPT_PLACEHOLDER-->
+</head>
+
+<body>
+    <body class="bg_fff">
+    <div class="news-wrap ptb20lr30">
+    	<h3 class="title"></h3>
+    	<div class="info-wrap">
+    		<p class="mb10"><samp class="fl">作者：<i class="auther"></i></samp><samp class="fr showDatetime"></samp></p>
+    		<p><samp>来源：<i class="source"></i></samp></p>
+    	</div>
+    	<div class="content"></div>
+    	<div class="news-footer">
+    		<div class="fl">
+    			<img class="fl" src="../images/logo.png" />
+    			<p class="fl">链接社APP</p>
+    		</div>
+    		<div class="fr">
+    			<div class="am-button am-button-primary" id="downloadBtn">立即下载</div>
+    		</div>
+    	</div>
+    </div>
+    <div class="mask hidden download-mask">
+		<img src="../images/rightArrow.png" />
+		<p>请点击右上角<br/>点击在浏览器打开下载APP</p>
+	</div>
+	
+    <link rel="import" href="footer.html?__inline">
+    <script>
+        require(['app/controller/Index']);
+    </script>
+</body>
+
+</html>

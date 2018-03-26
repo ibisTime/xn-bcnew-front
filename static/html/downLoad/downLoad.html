@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <link rel="import" href="../head.html?__inline">
+    <title>下载</title>
+    <!--SCRIPT_PLACEHOLDER-->
+</head>
+
+<body>
+    <body class="bg_fff download-bg">
+    <div class="download-wrap ptb20lr30">
+    	<div class="img">
+    		<img src="../../images/downLoad-img.png"/>
+    	</div>
+    	<div class="btn-wrap">
+			<div class="am-button am-button-primary" id="downloadBtn">下载APP</div>
+    	</div>
+    </div>
+    <div class="mask hidden download-mask">
+		<img src="../images/rightArrow.png" />
+		<p>请点击右上角<br/>点击在浏览器打开下载APP</p>
+	</div>
+	
+    <link rel="import" href="../footer.html?__inline">
+    <script>
+        require(['app/controller/DownLoad']);
+    </script>
+</body>
+
+</html>
