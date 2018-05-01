@@ -1,52 +1,68 @@
 @import "./mixin";
 @import "./global";
-
-.mb10{
+.mb10 {
     margin-bottom: .1rem;
 }
-.mb20{
+
+.mb20 {
     margin-bottom: .2rem;
 }
-.mt10{
+
+.mt10 {
     margin-top: .1rem;
 }
-.mt20{
+
+.mt20 {
     margin-top: .2rem;
 }
-.mr20{
+
+.mr20 {
     margin-right: .2rem;
 }
-.ml30{
+
+.ml30 {
     margin-left: .3rem;
 }
-.pb30{
+
+.pb30 {
     padding-bottom: .3rem;
 }
-.pr30{
+
+.pr30 {
     padding-right: .3rem;
 }
-.pr60{
+
+.pr60 {
     padding-right: .6rem;
 }
-.pl30{
+
+.pl30 {
     padding-left: .3rem;
 }
-.ptb20lr30{
+
+.ptb20lr30 {
     padding: .2rem .3rem;
 }
-.b_e_b{
+
+.b_e_b {
     border-bottom: 1px solid $border-color;
 }
-.b_e_t{
+
+.b_e_t {
     border-top: 1px solid $border-color;
 }
-.over-hide{
+
+.over-hide {
     overflow: hidden;
 }
-.fr_i{
+
+.fr_i {
     float: right !important;
 }
-label.error {
+
+label.error,
+.error {
+    display: inline-block;
     position: absolute;
     right: 0.3rem;
     top: 50%;
@@ -54,10 +70,12 @@ label.error {
     font-size: 0.28rem;
     color: #ff0200;
 }
-.tcolor_red{
+
+.tcolor_red {
     color: $red-color !important;
 }
-.tcolor_primary{
+
+.tcolor_primary {
     color: $primary-color !important;
 }
 
@@ -66,77 +84,80 @@ label.error {
     color: #484848;
     background-color: $primary-color;
 }
-.mask{
+
+.mask {
     width: 100%;
     height: 100%;
     position: fixed;
     top: 0;
     left: 0;
     z-index: 100;
-    background-color: rgba(0,0,0,.3);
+    background-color: rgba(0, 0, 0, .3);
     transition: .3s;
 }
+
+.inline_block_i{
+    display: inline-block !important;
+}
+
 // Swiper
 .swiper-pagination-bullet.swiper-pagination-bullet-active {
     background: #fff;
 }
 
-.swiper-pagination-fraction, .swiper-pagination-custom, .swiper-container-horizontal > .swiper-pagination-bullets{
+.swiper-pagination-fraction,
+.swiper-pagination-custom,
+.swiper-container-horizontal>.swiper-pagination-bullets {
     bottom: .1rem !important;
 }
 
-.news-wrap{
+.news-wrap {
     width: 100%;
-    
-    .title{
+    .title {
         font-size: .34rem;
         text-align: center;
         line-height: 1.5;
         margin: .3rem 0;
     }
-    .info-wrap{
+    .info-wrap {
         background-color: #f7f7f7;
         padding: .2rem;
-        p{
+        p {
             display: block;
             width: 100%;
             overflow: hidden;
             color: #818181;
             font-size: .26rem;
-            
-            i{
+            i {
                 font-style: normal;
             }
         }
     }
-    .content{
+    .content {
         margin: .3rem 0 1.2rem;
-        
-        img{
+        img {
             max-width: 100%;
         }
     }
-    .news-footer{
+    .news-footer {
         width: 100%;
         height: 1rem;
-        background-color: rgba(0,0,0,.5);
+        background-color: rgba(0, 0, 0, .5);
         position: fixed;
         bottom: 0;
         left: 0;
         z-index: 999;
         padding: .15rem .3rem 0;
-        
-        img{
+        img {
             height: .7rem;
         }
-        p{
+        p {
             color: #fff;
             font-size: .28rem;
             margin-left: .2rem;
             line-height: .7rem;
         }
-        
-        .am-button{
+        .am-button {
             height: .6rem;
             line-height: .6rem;
             padding: 0 .3rem;
@@ -146,22 +167,20 @@ label.error {
     }
 }
 
-.download-mask{
+.download-mask {
     width: 100%;
     height: 100%;
     position: fixed;
     top: 0;
     left: 0;
-    background-color: rgba(0,0,0,.5);
+    background-color: rgba(0, 0, 0, .5);
     padding-right: .6rem;
     padding-top: .2rem;
-    
-    img{
+    img {
         width: 2rem;
         float: right;
     }
-    
-    p{
+    p {
         position: absolute;
         top: 2.2rem;
         right: 2.1rem;
@@ -170,27 +189,27 @@ label.error {
         font-size: .28rem;
     }
 }
-.download-bg{
+
+.download-bg {
     width: 100%;
     height: 100%;
     background-image: url('../images/bg.png');
     background-position: center;
     background-size: 100% 100%;
 }
-.download-wrap{
+
+.download-wrap {
     width: 100%;
     text-align: center;
-    
-    .img{
+    .img {
         margin-top: 2rem;
-        img{
+        img {
             width: 2.6rem;
         }
     }
-    .btn-wrap{
+    .btn-wrap {
         margin-top: 1.4rem;
-        
-        .am-button{
+        .am-button {
             width: 2.6rem;
             font-size: .28rem;
             margin: 0 auto;
@@ -198,4 +217,132 @@ label.error {
     }
 }
 
-
+.addNews {
+    padding-bottom: .3rem;
+    .item-wrap {
+        width: 100%;
+        padding: 0 .26rem;
+        
+        .txt {
+            font-size: .32rem;
+            padding: .3rem 0 .28rem;
+            position: relative;
+            .icon-choose {
+                display: inline-block;
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: .4rem;
+                height: 100%;
+                background-image: url('../images/下拉@3x.png');
+                background-repeat: no-repeat;
+                background-position: center right;
+                background-size: .22rem;
+            }
+            .typeSelect {
+                position: absolute;
+                top: .7rem;
+                right: 0;
+                z-index: 99;
+                padding-top: .4rem;
+                
+                .mask{
+                    background-color: transparent;
+                    z-index: 1;
+                }
+                &:after {
+                    position: absolute;
+                    display: inline-block;
+                    top: .27rem;
+                    right: .18rem;
+                    width: 0;
+                    height: 0px;
+                    content: '';
+                    border-style: solid;
+                    border-width: .14rem;
+                    border-color: #fff #fff transparent transparent;
+                    transform: rotate(-45deg);
+                    box-shadow: .04rem -.04rem .06rem rgba(201, 201, 201, .2);
+                    z-index: 10;
+                }
+                
+                ul {
+                    width: 100%;
+                    max-height: 5.4rem;
+                    padding: .02rem .3rem 0;
+                    overflow-y: auto;
+                    background-color: #fff;
+                    border-radius: .1rem;
+                    box-shadow: 0 0 .14rem rgba(201, 201, 201, .5);
+                    position: relative;
+                    z-index: 9;
+                    li {
+                        width: 100%;
+                        font-size: .3rem;
+                        line-height: .9rem;
+                        border-bottom: 1px solid $border-color;
+                        &:last-child {
+                            border-bottom: 0;
+                        }
+                    }
+                }
+            }
+        }
+        .input-wrap {
+            width: 100%;
+            min-height: .48rem;
+            position: relative;
+            padding-bottom: .12rem;
+            
+            input[type="text"] {
+                width: 100%;
+                height: .36rem;
+                line-height: .36rem;
+                font-size: .28rem;
+                background-color: transparent;
+                position: absolute;
+                left: 0;
+                z-index: 8;
+                color: #818181;
+            }
+            .input-mask{
+                display: block;
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 9;
+            }
+        }
+        .image-wrap {
+            .picWrap {
+                width: 5rem;
+                height: 3rem;
+                position: relative;
+                .pic {
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: 100%;
+                }
+                .addAdvPic {
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    border: .02rem dashed $border-color;
+                    border-radius: .1rem;
+                    background-image: url('../images/添加图片.png');
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: .8rem;
+                }
+                .moxie-shim {
+                    width: 100% !important;
+                    height: 3rem !important;
+                }
+            }
+        }
+    }
+}

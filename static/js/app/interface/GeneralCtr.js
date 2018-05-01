@@ -3,6 +3,10 @@ define([
     'app/util/ajax'
 ], function(base, Ajax) {
     return {
+    	//获取七牛Token
+    	getQiniuToken(){
+    		return Ajax.get("805951");
+    	},
         // 查询资讯详情
         getNewsDetail(code) {
             return Ajax.get("628196", {
