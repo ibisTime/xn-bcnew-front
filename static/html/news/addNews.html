@@ -1,114 +1,82 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 
-<head>
-    <link rel="import" href="../head.html?__inline">
-    <title>发布资讯</title>
-    <!--SCRIPT_PLACEHOLDER-->
-	<link rel="stylesheet" type="text/css" href="../../css/wangEditor-mobile-rem.css">
-</head>
+	<head>
+		<link rel="import" href="../head.html?__inline">
+		<title>发布资讯</title>
+		<!--SCRIPT_PLACEHOLDER-->
+		<link href="../../css/quill.snow.css" rel="stylesheet">
+	</head>
 
-<body class="bg_fff">
-	<div class="addNews">
-		<form id="formWrapper">
-		<div class="item-wrap">
-			<div class="txt">标题</div>
-			<div class="input-wrap b_e_b">
-				<input type="text" id="title" name="title" placeholder="请输入标题" />
-			</div>
-		</div>
-		
-		<div class="item-wrap">
-			<div class="txt">类型<i class="icon-choose" id="typeBtn"></i>
-				<div class="typeSelect hidden" id="typeSelect">
-					<div class="mask"></div>
-					<ul></ul>
+	<body class="bg_fff">
+		<div class="addNews">
+			<form id="formWrapper">
+				<div class="item-wrap">
+					<div class="txt">标题</div>
+					<div class="input-wrap b_e_b">
+						<input type="text" id="title" name="title" placeholder="请输入标题" />
+					</div>
+				</div>
+
+				<div class="item-wrap">
+					<div class="txt">类型<i class="icon-choose" id="typeBtn"></i>
+						<div class="typeSelect hidden" id="typeSelect">
+							<div class="mask"></div>
+							<ul></ul>
+						</div>
+					</div>
+					<div class="input-wrap b_e_b">
+
+						<input type="text" id="typeName" name="typeName" placeholder="请选择" />
+						<input type="text" id="type" name="type" class="hidden" />
+						<i class="input-mask" id="typeInput"></i>
+					</div>
+				</div>
+
+				<div class="item-wrap">
+					<div class="txt">来源</div>
+					<div class="input-wrap b_e_b">
+						<input type="text" id="source" name="source" placeholder="请输入来源" />
+					</div>
+				</div>
+
+				<div class="item-wrap">
+					<div class="txt">作者</div>
+					<div class="input-wrap b_e_b">
+						<input type="text" id="auther" name="auther" placeholder="请输入作者" />
+					</div>
+				</div>
+
+				<div class="item-wrap">
+					<div class="txt">广告图</div>
+					<div class="image-wrap b_e_b pb30">
+						<div id="uploadContainer" class="wp100 picWrap">
+							<div id="uploadBtn" class="wp100 hp100">
+								<div class="wp100 hp100 pic" id="advPic"></div>
+								<div class="addAdvPic"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
+			<div class="item-wrap">
+				<div class="txt">内容<samp id="contentError" class="error hidden">不能为空</samp></div>
+				<div class="editor-wrap">
+					<div id="editor"></div>
 				</div>
 			</div>
-			<div class="input-wrap b_e_b">
-				
-				<input type="text" id="typeName" name="typeName" placeholder="请选择" />
-				<input type="text" id="type" name="type" class="hidden" />
-				<i class="input-mask" id="typeInput"></i>
+
+			<div class="item-wrap mt20">
+				<div class="am-button am-button-primary" id="submitBtn">发布</div>
 			</div>
 		</div>
-		
-		<div class="item-wrap">
-			<div class="txt">来源</div>
-			<div class="input-wrap b_e_b">
-				<input type="text" id="source" name="source" placeholder="请输入来源" />
-			</div>
-		</div>
-		
-		<div class="item-wrap">
-			<div class="txt">作者</div>
-			<div class="input-wrap b_e_b">
-				<input type="text" id="auther" name="auther" placeholder="请输入作者" />
-			</div>
-		</div>
-		
-		<div class="item-wrap">
-			<div class="txt">广告图</div>
-			<div class="image-wrap b_e_b pb30">
-				<div id="uploadContainer" class="wp100 picWrap">
-			    	<div id="uploadBtn" class="wp100 hp100">
-			            <div class="wp100 hp100 pic" id="advPic"></div>
-			            <div class="addAdvPic"></div>
-			        </div>
-			    </div>
-			</div>
-		</div>
-		</form>
-		<div class="item-wrap">
-			<div class="txt">内容<samp id="contentError" class="error hidden">不能为空</samp></div>
-			<div class="input-wrap">
-				<div class="container">
-					<textarea id="content" name="content" class="wp100 hp100"></textarea>
-				</div>
-			</div>
-		</div>
-		
-		<!--<div class="item-wrap">
-			<div class="am-button am-button-primary" id="submitBtn">发布</div>
-		</div>-->
-	</form>
-    	
-	<script type="text/javascript" src="../../js/lib/wangEditor/zepto.js"></script>
-	<script type="text/javascript" src="../../js/lib/wangEditor/zepto.touch.js"></script>
-	<script type="text/javascript" src="../../js/lib/wangEditor/wangEditor-mobile.js"></script>
-    <script type="text/javascript" src="../../js/lib/qiniu/plupload.full.min.js"></script>
-    <script type="text/javascript" src="../../js/lib/qiniu/qiniu.min.js"></script>
-	<script type="text/javascript">
-		$(function () {
-			// 全局配置
-			 ___E.config.menus = [
-			 	'head',
-				'bold',
-				'color',
-				'quote',
-				'list',
-				'img',
-				'check'
-			];
-		
-			// 生成编辑器
-			var editor = new ___E('content');
-	
-			// 自定义配置
-			editor.config.uploadImgUrl = PIC_PREFIX;
-	
-			// editor.config.menus = ['bold', 'quote', 'list','img'];
-	
-			// 初始化
-			editor.init();
-	
-//			console.log(editor.$txt);
-		});
-	</script>
-	<link rel="import" href="../footer.html?__inline">
-    <script>
-        require(['app/controller/news/AddNews']);
-    </script>
-</body>
+
+		<script type="text/javascript" src="../../js/lib/qiniu/plupload.full.min.js"></script>
+		<script type="text/javascript" src="../../js/lib/qiniu/qiniu.min.js"></script>
+		<link rel="import" href="../footer.html?__inline">
+		<script>
+			require(['app/controller/news/AddNews']);
+		</script>
+	</body>
 
 </html>
