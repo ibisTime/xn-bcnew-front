@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <link rel="import" href="../head.html?__inline">
+    <title>趋势图</title>
+    <!--SCRIPT_PLACEHOLDER-->
+    <script>
+    	
+    	function chartsClick(){
+    		js.chartClick()
+    	}
+    	
+    </script>
+</head>
+
+<body>
+    <body class="bg_fff">
+	<div class="echarts-wrap">
+		<div id="chart" onclick="chartsClick()"></div>
+	</div>
+	
+    <link rel="import" href="../footer.html?__inline">
+    <script>
+        require(['app/controller/charts/MarketLine']);
+    </script>
+</body>
+
+</html>

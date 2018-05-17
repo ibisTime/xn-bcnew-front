@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <link rel="import" href="../head.html?__inline">
+    <title>k线图</title>
+    <!--SCRIPT_PLACEHOLDER-->
+    <script>
+    	$(function(){
+    		if($("body").height()<$("body").width()){
+				$("body").addClass("isfull")
+			}
+    	})
+    	function rec(v){
+    		var _this = v;
+    		var index ;
+    		if(_this.hasClass("on")){
+    			index = '0' 
+    		}else{
+    			index = '1' 
+    		}
+			js.acllJs(index); 
+		}
+    </script>
+</head>
+
+<body>
+    <body class="bgClass bg_white">
+    <div class="nav-wrap bgClass bg_white" id="timeChoose">
+    	<div class="time wp100 bgClass bg_white">
+    		<ul class="fl periodUl showUl">
+    			<!--1min, 5min, 15min, 30min, 60min, 1day, 1mon, 1week, 1year-->
+    			<li class="fl 15min" data-value="15min">15分钟</li>
+    			<li class="fl 60min" data-value="60min">1小时</li>
+    			<li class="fl 1day" data-value="1day">1天</li>
+    			<li class="fl 1week" data-value="1week">1周</li>
+    			<li class="fl more" data-value="more">更多</li>
+    		</ul>
+    		<div class="fr">
+	    		<ul class="setUl">
+	    			<li class="fl" id="colorStyle" data-style="white">色调</li>
+	    			<!--<li class="fl index" id="indexBtn">指标</li>-->
+	    			<li class="fl icon-full" id="fullBtn" onclick="rec($(this))"><i></i></li>
+	    		</ul>
+	    	</div>
+    	</div>
+    	<div class="more-wrap wp100" id="moreChoose">
+			<ul class="periodUl wp100">
+				<li class="fl moreLi 1min" data-value="1min">1分钟</li>
+    			<li class="fl moreLi 5min" data-value="5min">5分钟</li>
+				<li class="fl 30min" data-value="30min">30分钟</li>
+    			<li class="fl moreLi 1mon" data-value="1mon">1月</li>
+    			<li class="fl moreLi 1year" data-value="1year">1年</li>
+			</ul>
+		</div>
+		
+    	<!--<div class="more-wrap wp100" id="indexChoose">
+			<ul class="indexUl wp100">
+				<li class="fl indexLi ma on" data-value="ma">MA</li>
+    			<li class="fl indexLi boll" data-value="boll">BOLL</li>
+			</ul>
+		</div>-->
+    </div>
+	<div class="echarts-wrap">
+		<div class="chartVal" id="candlestickVal"></div>
+		<div class="chart bgClass bg_white" id="chart"></div>
+	</div>
+	
+	<!--弹窗-->
+    <div class="am-modal-wrap colorStyle-dialog hidden" id="colorStyleDialog">
+        <div class="am-modal-mask"></div>
+        <div class="am-modal">
+            <div class="am-modal-content">
+                <div class="am-modal-header">
+                	<p>色调设置</p>
+                </div>
+                <div class="am-modal-body">
+                	<div class="content">
+                		<div class="fl white" data-style="white">亮色调</div>
+                		<div class="fl black" data-style="black">暗色调</div>
+                	</div>
+                </div>
+                <div class="am-modal-footer">
+                	<div class="am-button am-button-small am-button-primary-48 subBtn">保存</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <link rel="import" href="../footer.html?__inline">
+    <script>
+        require(['app/controller/charts/Index']);
+    </script>
+</body>
+
+</html>

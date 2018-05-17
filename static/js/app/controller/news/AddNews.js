@@ -202,6 +202,10 @@ define([
 		$("#submitBtn").click(function() {
 			doSubmit();
 		})
+		
+		$("#uploadBtn").click(function(){
+			alert("点击")
+		})
 	}
 
 	function doSubmit() {

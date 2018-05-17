@@ -9,7 +9,8 @@ fis.hook('amd', {
         'jquery': "lib/jquery-2.1.4",
         'picker': "lib/picker/picker.min.js",
         'swiper': "lib/swiper/swiper-3.3.1.jquery.min",
-        'Quill': "lib/quill/quill"
+        'Quill': "lib/quill/quill",
+        'echarts': "lib/echarts/echarts"
     },
     shim: {
         "IScroll": {
