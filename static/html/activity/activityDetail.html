@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <link rel="import" href="../head.html?__inline">
+    <title>活动详情</title>
+    <!--SCRIPT_PLACEHOLDER-->
+</head>
+
+<body>
+    <body>
+    <div class="activity-wrap wp100">
+    	<div class="top wp100 bg_fff">
+	    	<div class="advpic" id="advPic"></div>
+	    	<div class="title " id="title"></div>
+	    	<div class="item-wrap readCount">
+    			<i class="icon icon-readCount fl"></i>
+    			<samp class="txt fl" id="readCount"></samp>
+	    		<samp class="price fr" id="price"></span>
+	    	</div>
+    	</div>
+    	<div class="middle mt20 wp100 bg_fff">
+    		<div class="item-wrap b_e_b">
+    			<i class="icon icon-time fl"></i>
+    			<samp class="txt fl" id="time"></samp>
+    		</div>
+    		<div class="item-wrap b_e_b">
+    			<i class="icon icon-address fl"></i>
+    			<samp class="txt fl" id="address"></samp>
+    		</div>
+    		<div class="item-wrap">
+    			<i class="icon icon-tel fl"></i>
+    			<samp class="txt fl" id="mobile"></samp>
+    		</div>
+    	</div>
+    	<div class="content mt20 wp100 bg_fff ptb20lr30">
+    		<div class="title">活动详情</div>
+    		<div class="content-wrap" id="content"></div>
+    	</div>
+        
+    	<div class="detail-footer">
+    		<div class="fl">
+    			<img class="fl" src="../images/logo.png" />
+    			<p class="fl">链接社APP</p>
+    		</div>
+    		<div class="fr">
+    			<div class="am-button am-button-primary" id="downloadBtn">立即下载</div>
+    		</div>
+    	</div>
+    </div>
+    <div class="mask hidden download-mask">
+		<img src="../images/rightArrow.png" />
+		<p>请点击右上角<br/>点击在浏览器打开下载APP</p>
+	</div>
+	
+    <link rel="import" href="../footer.html?__inline">
+    <script>
+        require(['app/controller/activity/ActivityDetail']);
+    </script>
+</body>
+
+</html>

@@ -17,5 +17,11 @@ define([
         getSysConfigType(type) {
             return Ajax.get("628918", {type}, true);
         },
+        // 查询活动详情
+        getActivityDetail(code) {
+            return Ajax.get("628508", {
+            	code
+            }, true);
+        },
     };
 })

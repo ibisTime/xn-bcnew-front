@@ -96,7 +96,7 @@
 
     //手机验证规则
     jQuery.validator.addMethod("mobile", function(value, element) {
-        var mobile = /^1[3|4|5|7|8]\d{9}$/;
+        var mobile = /^1[3|4|5|7|8|9]\d{9}$/;
         return this.optional(element) || (mobile.test(value));
     }, "手机格式错误");
 

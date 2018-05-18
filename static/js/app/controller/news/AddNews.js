@@ -28,8 +28,6 @@ define([
  	Size.whitelist = ['0.26rem', '0.31rem', '0.37rem', '0.41rem', '0.47rem', '0.52rem'];
  	Quill.register(Size, true);
  	
- 	
- 	
 	var quill = new Quill('#editor', {
 		theme: 'snow',
 		modules: {
@@ -80,7 +78,7 @@ define([
 					formData.append('file', fileData);
 					xhr.onreadystatechange = function(response) {
 						if(xhr.readyState == 4 && xhr.status == 200 && xhr.responseText != "") {
-							var imageSrc = PIC_PREFIX + '/' + JSON.parse(xhr.responseText).key;
+							var imageSrc = PIC_PREFIX + JSON.parse(xhr.responseText).key;
 
 							var range = quill.getSelection(true);
 							quill.insertEmbed(range.index, 'image', imageSrc);
@@ -98,12 +96,11 @@ define([
 		fileInput.click();
 	});
 	
-	
-	
 	init();
 
 	function init() {
 		if(!ownerId) {
+			base.showMsg("ownerId为空")
 			return;
 		}
 		$.when(
@@ -209,7 +206,7 @@ define([
 	}
 
 	function doSubmit() {
-		console.log(quill.container.firstChild.innerHTML)
+//		console.log(quill.container.firstChild.innerHTML)
 		
 		if(_formWrapper.valid()) {
 			var params = _formWrapper.serializeObject()

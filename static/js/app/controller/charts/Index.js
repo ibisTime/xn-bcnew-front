@@ -48,6 +48,10 @@ define([
 	var chartOption = {};
 	var option = {};
 	
+	if(exchange=='Okex'){
+		$("#moreChoose .1mon").addClass("hidden")
+	}
+	
 	init();
 
 	function init() {
@@ -72,8 +76,9 @@ define([
 			};
 			if(data.t.length) {
 				data.t.forEach((item) => {
-					option.date.push(base.formatDate(item * 1000, timeFormat[config.period]));
-					option.dateFormatDate.push(base.formatDate(item * 1000, 'yyyy-MM-dd hh:ss'));
+					var time = exchange=='huobiPro'?item * 1000:item;
+					option.date.push(base.formatDate(time, timeFormat[config.period]));
+					option.dateFormatDate.push(base.formatDate(time, 'yyyy-MM-dd hh:ss'));
 				})
 			}
 			if(data.v.length) {
@@ -92,8 +97,10 @@ define([
 				option.BOLLData.push(data.c[i]);
 			}
 			var lastIndex = data.t.length-1;
-			var html = option.dateFormatDate[lastIndex] + ' 开:'+data.o[lastIndex]+' 高:'+data.h[lastIndex]+' 低:'+data.l[lastIndex]+' 收:'+data.c[lastIndex];
-			$("#candlestickVal").html(html);
+			if(lastIndex>0){
+				var html = option.dateFormatDate[lastIndex] + ' 开:'+data.o[lastIndex]+' 高:'+data.h[lastIndex]+' 低:'+data.l[lastIndex]+' 收:'+data.c[lastIndex];
+				$("#candlestickVal").html(html);
+			}
 			option.MAData.reverse();
 			option.BOLLData.reverse();
 			
