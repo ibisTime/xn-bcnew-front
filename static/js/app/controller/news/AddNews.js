@@ -112,7 +112,11 @@ define([
 	}
 
 	function addNews(params) {
-		return NewsCtr.addNews(params).then(function(data) {});
+		return NewsCtr.addNews(params).then(function(data) {
+			base.hideLoading();
+			
+			$("#finishBtn").click();
+		});
 	}
 
 	//七牛
@@ -127,12 +131,14 @@ define([
 					containerId: "uploadContainer",
 					multi_selection: false,
 					showUploadProgress: function(up, file) {
+						base.showLoading("上传中...");
 						$(".upload-progress").css("width", parseInt(file.percent, 10) + "%");
 					},
 					fileAdd: function(up, file) {
 						$(".upload-progress-wrap").show();
 					},
 					fileUploaded: function(up, url, key) {
+						base.hideLoading()
 						$(".upload-progress-wrap").hide().find(".upload-progress").css("width", 0);
 						$(".addAdvPic").addClass('hidden')
 						$("#advPic").css("background-image", "url('" + url + "')");
@@ -200,20 +206,18 @@ define([
 			doSubmit();
 		})
 		
-		$("#uploadBtn").click(function(){
-			alert("点击")
-		})
 	}
 
 	function doSubmit() {
 //		console.log(quill.container.firstChild.innerHTML)
-		
+		alert('发布点击')
 		if(_formWrapper.valid()) {
 			var params = _formWrapper.serializeObject()
 			params.advPic = $('#advPic').attr('data-key');
 			params.content = quill.container.firstChild.innerHTML;
 			params.ownerId = ownerId;
-
+			
+			base.showLoading();
 			addNews(params)
 		}
 

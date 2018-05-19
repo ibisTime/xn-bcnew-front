@@ -66,14 +66,23 @@
 				</div>
 			</div>
 
-			<div class="item-wrap mt20">
+			<div class="item-wrap mt20 hidden">
 				<div class="am-button am-button-primary" id="submitBtn">发布</div>
+				<div class="am-button am-button-primary hidden" id="finishBtn" onClick="doFinish()">发布成功</div>
 			</div>
 		</div>
 
 		<script type="text/javascript" src="../../js/lib/qiniu/plupload.full.min.js"></script>
 		<script type="text/javascript" src="../../js/lib/qiniu/qiniu.min.js"></script>
 		<link rel="import" href="../footer.html?__inline">
+		<script>
+			function doSubmit(){
+				$("#submitBtn").click();
+			}
+			function doFinish(){
+				js.doFinish();
+			}
+		</script>
 		<script>
 			require(['app/controller/news/AddNews']);
 		</script>

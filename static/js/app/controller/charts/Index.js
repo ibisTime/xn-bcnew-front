@@ -97,10 +97,15 @@ define([
 				option.BOLLData.push(data.c[i]);
 			}
 			var lastIndex = data.t.length-1;
+			if(exchange!='huobiPro'){
+				option.date = option.date.reverse();
+				option.dateFormatDate = option.dateFormatDate.reverse();
+			}
 			if(lastIndex>0){
 				var html = option.dateFormatDate[lastIndex] + ' 开:'+data.o[lastIndex]+' 高:'+data.h[lastIndex]+' 低:'+data.l[lastIndex]+' 收:'+data.c[lastIndex];
 				$("#candlestickVal").html(html);
 			}
+			console.log(option.date)
 			option.MAData.reverse();
 			option.BOLLData.reverse();
 			
