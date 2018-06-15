@@ -210,7 +210,6 @@ define([
 
 	function doSubmit() {
 //		console.log(quill.container.firstChild.innerHTML)
-		alert('发布点击')
 		if(_formWrapper.valid()) {
 			var params = _formWrapper.serializeObject()
 			params.advPic = $('#advPic').attr('data-key');
@@ -220,6 +219,5 @@ define([
 			base.showLoading();
 			addNews(params)
 		}
-
 	}
 });

@@ -33,13 +33,15 @@ define([
 			upColor: "#45bb40",
 			downColor: "#cc1414",
 			borderColor: "#24292f",
-			borderOpacity: "0.9"
+			borderOpacity: "0.9",
+			axisLabelColor:'#484848'
 		},
 		"white": {
 			upColor: "#1fc07d",
 			downColor: "#ff5757",
 			borderColor: "#eee",
-			borderOpacity: "0.3"
+			borderOpacity: "0.3",
+			axisLabelColor:'#999999'
 		},
 	}
 
@@ -105,9 +107,6 @@ define([
 				var html = option.dateFormatDate[lastIndex] + ' 开:'+data.o[lastIndex]+' 高:'+data.h[lastIndex]+' 低:'+data.l[lastIndex]+' 收:'+data.c[lastIndex];
 				$("#candlestickVal").html(html);
 			}
-			console.log(option.date)
-			option.MAData.reverse();
-			option.BOLLData.reverse();
 			
 			setChart(refresh);
 			base.hideLoading();
@@ -183,13 +182,13 @@ define([
 			grid: [{
 					left: '2%',
 					right: '15%',
-					top: '5%',
-					height: $("body").height()<$("body").width()?'60%':'64%'
+					top: '6%',
+					height: $("body").height()<$("body").width()?'58%':'62%'
 				},
 				{
 					left: '2%',
 					right: '15%',
-					top: $("body").height()<$("body").width()?'66%':'70%',
+					top: $("body").height()<$("body").width()?'64%':'68%',
 					height: '18%'
 				}
 			],
@@ -230,7 +229,7 @@ define([
 						}
 					},
 					axisLabel: {
-						color: '#484848',
+						color: colorStyleData[colorStyle].axisLabelColor,
 						fontSize: '.22rem',
 //						formatter: function(v) {
 //							var formatData = timeFormat[config.period];
@@ -253,7 +252,7 @@ define([
 						}
 					},
 					axisLabel: {
-						color: '#484848',
+						color: colorStyleData[colorStyle].axisLabelColor,
 						fontSize: '.22rem'
 					},
 					splitLine: {

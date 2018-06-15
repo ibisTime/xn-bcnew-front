@@ -36,15 +36,17 @@ define([
 		return MarketCtr.getSizeCandlestick(config).then((data) => {
 			option = {
 				date: [],
+				dateFormatDate: [],
 				kValues: [],
 				close: []
 			};
 			
 			if(data.t.length) {
-				data.t.forEach((item, i) => {
-					option.date.push(base.formatDate(item * 1000, 'yyyy-MM-dd hh:mm'));
+				data.t.forEach((item) => {
+					var time = exchange=='huobiPro'?item * 1000:item;
+					option.date.push(base.formatDate(time, 'hh:mm'));
+					option.dateFormatDate.push(base.formatDate(time, 'yyyy-MM-dd hh:mm'));
 				})
-				option.date.reverse();
 			}
 			if(data.c.length) {
 				data.c.forEach((item) => {
@@ -53,6 +55,12 @@ define([
 				
 				option.close.reverse();
 			}
+			
+			if(exchange=='huobiPro'){
+				option.date = option.date.reverse();
+				option.dateFormatDate = option.dateFormatDate.reverse();
+			}
+			
 			setChart(refresh);
 			base.hideLoading();
 		})
@@ -69,8 +77,9 @@ define([
 		        	},
 		        },
 				confine: true,
-				formatter: function(data){
-					return '<p class="tooltip_txt">'+data[0].axisValue+'<br/>'+unit+data[0].data+'</p>';
+				formatter: function(param){
+					var dateFormatDate = option.dateFormatDate[param[0].dataIndex];
+					return '<p class="tooltip_txt">'+dateFormatDate+'<br/>'+unit+param[0].data+'</p>';
 				}
 		    },
 			xAxis: {
@@ -85,9 +94,6 @@ define([
 				axisLabel: {
 					color: '#999999',
 					fontSize: '.24rem',
-					formatter: function(v){
-						return base.formatDate(v, 'hh:mm')
-					}
 				},
 			},
 			yAxis: {
