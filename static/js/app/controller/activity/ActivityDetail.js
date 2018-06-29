@@ -29,7 +29,7 @@ define([
     		$("#advPic").css({"background-image":"url('"+base.getImg(data.advPic,'?imageMogr2/auto-orient/thumbnail/!1500x720r')+"')"})
     		$("#title").text(data.title);
     		$("#readCount").text(data.readCount)
-    		$("#price").text('￥'+base.formatMoney(data.price))
+    		$("#price").text('￥'+data.price)
     		$("#time").text(base.formatDate(data.startDatetime,'yyyy-dd-MM hh:ss:mm')+'-'+base.formatDate(data.endDatetime,'yyyy-dd-MM hh:ss:mm'));
     		$("#address").text(data.address);
     		$("#mobile").text(data.contactMobile);

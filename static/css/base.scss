@@ -1019,3 +1019,14 @@ blockquote {
     font-size: .24rem;
     border-left: .05rem solid #eee;
 }
+.big{
+    padding: 0.5rem;
+    .block-title {
+        width: 100%;
+        text-align: center;
+        font-size: 0.5rem
+    }
+    .block-description {
+        font-size: 0.3rem
+    }
+}
